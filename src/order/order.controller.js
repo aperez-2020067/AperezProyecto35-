@@ -103,27 +103,44 @@ export const updateOrder = async (req, res) => {
 
 // Eliminar un pedido
 export const deleteOrder = async (req, res) => {
-    try {
-      const { orderId } = req.params;  // El id del pedido a eliminar
-  
-      // Buscar el pedido en la base de datos
-      const order = await Order.findById(orderId);
-      if (!order) {
-        return res.status(404).send({ message: 'Pedido no encontrado' });
-      }
-  
-      // Verificar que el usuario sea el propietario del pedido
-      if (order.userId.toString() !== req.user.uid) {  // Usamos uid en lugar de id
-        return res.status(403).send({ message: 'No tienes permiso para eliminar este pedido' });
-      }
-  
-      // Eliminar el pedido utilizando deleteOne()
-      await order.deleteOne();  // Cambio aquí de .remove() a .deleteOne()
-  
-      return res.status(200).send({ message: 'Pedido eliminado exitosamente' });
-    } catch (error) {
-      console.error('Error al eliminar el pedido:', error);
-      return res.status(500).send({ message: 'Error al eliminar el pedido', error: error.message });
+  try {
+    const { orderId } = req.params;  // El id del pedido a eliminar
+
+    // Buscar el pedido en la base de datos
+    const order = await Order.findById(orderId);
+    if (!order) {
+      return res.status(404).send({ message: 'Pedido no encontrado' });
     }
-  };
-  
+
+    // Verificar que el usuario sea el propietario del pedido
+    if (order.userId.toString() !== req.user.uid) {  // Usamos uid en lugar de id
+      return res.status(403).send({ message: 'No tienes permiso para eliminar este pedido' });
+    }
+
+    // Obtener la factura asociada al pedido
+    const invoice = await Invoice.findById(order.invoiceId).populate('products.productId');
+    if (!invoice) {
+      return res.status(404).send({ message: 'Factura no encontrada' });
+    }
+
+    // Recuperar el stock de los productos de la factura
+    for (let item of invoice.products) {
+      const product = await Product.findById(item.productId);
+      if (!product) {
+        return res.status(404).send({ message: `Producto con ID ${item.productId} no encontrado` });
+      }
+
+      // Restablecer el stock del producto
+      product.stock += item.quantity;
+      await product.save();
+    }
+
+    // Eliminar el pedido utilizando deleteOne()
+    await order.deleteOne();  // Cambio aquí de .remove() a .deleteOne()
+
+    return res.status(200).send({ message: 'Pedido eliminado exitosamente y stock restablecido' });
+  } catch (error) {
+    console.error('Error al eliminar el pedido:', error);
+    return res.status(500).send({ message: 'Error al eliminar el pedido', error: error.message });
+  }
+};
