@@ -143,4 +143,8 @@ export const deleteOrder = async (req, res) => {
     console.error('Error al eliminar el pedido:', error);
     return res.status(500).send({ message: 'Error al eliminar el pedido', error: error.message });
   }
+<<<<<<< HEAD
 };
+=======
+};
+>>>>>>> ecb4f19baaca178b9448e23f36f73baa9dc08fa1
