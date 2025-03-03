@@ -13,6 +13,9 @@ import authRoutes from '../src/auth/auth.routes.js'
 import userRoutes from '../src/user/user.routes.js'
 import categoryRoutes from '../src/category/category.routes.js'
 import productRoutes from '../src/producto/product.routes.js'
+import cartRoutes from '../src/cart/cart.routes.js'
+import invoiceRoutes from '../src/invoice/invoice.routes.js'
+import orderRoutes from '../src/order/order.routes.js'
 import { limiter } from '../middlewares/rate.limit.js'
 
 
@@ -29,7 +32,9 @@ const routes = (app)=>{
     app.use(authRoutes)
     app.use(categoryRoutes)
     app.use(productRoutes)
- 
+    app.use(cartRoutes)
+    app.use(invoiceRoutes)
+    app.use(orderRoutes)
     //Buenas prácticas de rutas
             //pre ruta o ruta general
     app.use('/v1/user', userRoutes)

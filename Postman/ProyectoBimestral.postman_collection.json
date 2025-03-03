@@ -1,0 +1,1214 @@
+{
+	"info": {
+		"_postman_id": "0866f9cc-3645-4d83-868d-6963fa1ffeec",
+		"name": "ProyectoBimestral",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37952067"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "VerUsuariosporAdmin",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "localhost:3628/v1/user/userlist",
+							"host": [
+								"localhost"
+							],
+							"port": "3628",
+							"path": [
+								"v1",
+								"user",
+								"userlist"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "VerElPropioUsuario",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3628/v1/user/user/67c52f7ee44cf9690b450a2b",
+							"host": [
+								"localhost"
+							],
+							"port": "3628",
+							"path": [
+								"v1",
+								"user",
+								"user",
+								"67c52f7ee44cf9690b450a2b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ActualizarUsuario",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Valerya",
+									"type": "text"
+								},
+								{
+									"key": "surname",
+									"value": "Rodas",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "mictia",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "email",
+									"value": "mictia311@kinal.edu.gt",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "2easWdxcsa$#@s",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "phone",
+									"value": "48333562",
+									"type": "text"
+								},
+								{
+									"key": "profilePicture",
+									"type": "file",
+									"src": "/C:/Users/alanr/Downloads/Logo 100%.png",
+									"disabled": true
+								},
+								{
+									"key": "role",
+									"value": "CLIENT",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3628/v1/user/update/67c52f7ee44cf9690b450a2b",
+							"host": [
+								"localhost"
+							],
+							"port": "3628",
+							"path": [
+								"v1",
+								"user",
+								"update",
+								"67c52f7ee44cf9690b450a2b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EliminarUsuario",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3628/v1/user/delete/67af42d822595d9b530a4926",
+							"host": [
+								"localhost"
+							],
+							"port": "3628",
+							"path": [
+								"v1",
+								"user",
+								"delete",
+								"67af42d822595d9b530a4926"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Producto",
+			"item": [
+				{
+					"name": "CrearProdcuto",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Wii",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Consola de wii",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "150",
+									"type": "text"
+								},
+								{
+									"key": "stock",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "category",
+									"value": "67c532c5e78908c9d9a663e2",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3628/productcreate",
+							"host": [
+								"localhost"
+							],
+							"port": "3628",
+							"path": [
+								"productcreate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "VerTodosLosProductos",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3628/productlist",
+							"host": [
+								"localhost"
+							],
+							"port": "3628",
+							"path": [
+								"productlist"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "BuscarPorNombre",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "query",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3628/products/search?query=Auriculares Sony WH-1000XM5",
+							"host": [
+								"localhost"
+							],
+							"port": "3628",
+							"path": [
+								"products",
+								"search"
+							],
+							"query": [
+								{
+									"key": "query",
+									"value": "Auriculares Sony WH-1000XM5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "BuscarOutStock",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3628/admin/products/out-of-stock",
+							"host": [
+								"localhost"
+							],
+							"port": "3628",
+							"path": [
+								"admin",
+								"products",
+								"out-of-stock"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ProductosMasvendidos",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3628/admin/products/best-sellers",
+							"host": [
+								"localhost"
+							],
+							"port": "3628",
+							"path": [
+								"admin",
+								"products",
+								"best-sellers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "BuscarPorCategoria",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3628/products/category/67c5324ae78908c9d9a663d8",
+							"host": [
+								"localhost"
+							],
+							"port": "3628",
+							"path": [
+								"products",
+								"category",
+								"67c5324ae78908c9d9a663d8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ActualizarStock",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "stock",
+									"value": "25",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3628/admin/products/update-stock/67c53597f2e421668c11571d",
+							"host": [
+								"localhost"
+							],
+							"port": "3628",
+							"path": [
+								"admin",
+								"products",
+								"update-stock",
+								"67c53597f2e421668c11571d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ActualizarProductos",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							},
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Zapatillas de Running Adidas Ultraboost 22",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Zapatillas con tecnología de amortiguación BOOST",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "3000",
+									"type": "text"
+								},
+								{
+									"key": "stock",
+									"value": "12",
+									"type": "text"
+								},
+								{
+									"key": "category",
+									"value": "67c5324ae78908c9d9a663d8",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3628/productupdate/67c53597f2e421668c11571d",
+							"host": [
+								"localhost"
+							],
+							"port": "3628",
+							"path": [
+								"productupdate",
+								"67c53597f2e421668c11571d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EliminarProducto",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3628/productdelete/67c538aaf2e421668c115729",
+							"host": [
+								"localhost"
+							],
+							"port": "3628",
+							"path": [
+								"productdelete",
+								"67c538aaf2e421668c115729"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Categoria",
+			"item": [
+				{
+					"name": "CrearCategoria",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Jabones",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Electronica ss",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3628/create",
+							"host": [
+								"localhost"
+							],
+							"port": "3628",
+							"path": [
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "verCategorias",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3628/list",
+							"host": [
+								"localhost"
+							],
+							"port": "3628",
+							"path": [
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ActualizarCategorias",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							},
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Juguetes y Juegos",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Podras encontrar muchos productos ",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3628/update/67c532c5e78908c9d9a663e2",
+							"host": [
+								"localhost"
+							],
+							"port": "3628",
+							"path": [
+								"update",
+								"67c532c5e78908c9d9a663e2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EliminarCategoria",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3628/delete/67af436022595d9b530a4931",
+							"host": [
+								"localhost"
+							],
+							"port": "3628",
+							"path": [
+								"delete",
+								"67af436022595d9b530a4931"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Registrar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Superpan",
+									"type": "text"
+								},
+								{
+									"key": "surname",
+									"value": "Deus",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "Marino",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "stompy@kinal.edu.gt",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "2easWdxcsa$#@s",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "48333561",
+									"type": "text"
+								},
+								{
+									"key": "profilePicture",
+									"type": "file",
+									"src": "/C:/Users/alanr/Downloads/Logo 100%.png"
+								},
+								{
+									"key": "role",
+									"value": "CLIENT",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3628/register",
+							"host": [
+								"localhost"
+							],
+							"port": "3628",
+							"path": [
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var data = JSON.parse(responseBody);\r",
+									"postman.setGlobalVariable(\"token\", data.token)"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "marino",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "2easWdxcsa$#@s",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3628/login",
+							"host": [
+								"localhost"
+							],
+							"port": "3628",
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Test",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "localhost:3628/test",
+							"host": [
+								"localhost"
+							],
+							"port": "3628",
+							"path": [
+								"test"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Invoice",
+			"item": [
+				{
+					"name": "Crearfactura",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "cartId",
+									"value": "67c53fb2f2e421668c115784",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "Paid",
+									"type": "text"
+								},
+								{
+									"key": "",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3628/createfacture",
+							"host": [
+								"localhost"
+							],
+							"port": "3628",
+							"path": [
+								"createfacture"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ObtenerFacturasPorIdUsuario",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3628/facture/67c52f9ee44cf9690b450a2e",
+							"host": [
+								"localhost"
+							],
+							"port": "3628",
+							"path": [
+								"facture",
+								"67c52f9ee44cf9690b450a2e"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ActualizarFactura",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "cartId",
+									"value": "67c53fb2f2e421668c115784",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "Canceled",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3628/updatefacture/67c542932758c60de47ddcd3",
+							"host": [
+								"localhost"
+							],
+							"port": "3628",
+							"path": [
+								"updatefacture",
+								"67c542932758c60de47ddcd3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminarfactura",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3628/deletefacture/67c4986398af48d5b4dd94fe",
+							"host": [
+								"localhost"
+							],
+							"port": "3628",
+							"path": [
+								"deletefacture",
+								"67c4986398af48d5b4dd94fe"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Order",
+			"item": [
+				{
+					"name": "CrearPedido",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "invoiceId",
+									"value": "67c542932758c60de47ddcd3",
+									"type": "text"
+								},
+								{
+									"key": "shippingAddress",
+									"value": "123 Calle Ficticia, Ciudad, País",
+									"type": "text"
+								},
+								{
+									"key": "paymentMethod",
+									"value": "Tarjeta De Credito",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "Shipped",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3628/createpedido",
+							"host": [
+								"localhost"
+							],
+							"port": "3628",
+							"path": [
+								"createpedido"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ObtenerPedidoPorIdUsuario",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3628/pedido/67c52f9ee44cf9690b450a2e",
+							"host": [
+								"localhost"
+							],
+							"port": "3628",
+							"path": [
+								"pedido",
+								"67c52f9ee44cf9690b450a2e"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ActualizarPedido",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "invoiceId",
+									"value": "67c542932758c60de47ddcd3",
+									"type": "text"
+								},
+								{
+									"key": "shippingAddress",
+									"value": "quinta samayoa",
+									"type": "text"
+								},
+								{
+									"key": "paymentMethod",
+									"value": "Efectivo",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "Shipped",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3628/ordersupdate/67c5437497e5f787fd16ae7f",
+							"host": [
+								"localhost"
+							],
+							"port": "3628",
+							"path": [
+								"ordersupdate",
+								"67c5437497e5f787fd16ae7f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeletePedido",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3628/ordersdelete/67c4d1e51158c67b1ff29330",
+							"host": [
+								"localhost"
+							],
+							"port": "3628",
+							"path": [
+								"ordersdelete",
+								"67c4d1e51158c67b1ff29330"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Cart",
+			"item": [
+				{
+					"name": "CrearCarrito",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "productId",
+									"value": "67c5356bf2e421668c11571a",
+									"type": "text"
+								},
+								{
+									"key": "quantity",
+									"value": "2",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3628/carrito",
+							"host": [
+								"localhost"
+							],
+							"port": "3628",
+							"path": [
+								"carrito"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "verCarrito",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3628/vercarrito",
+							"host": [
+								"localhost"
+							],
+							"port": "3628",
+							"path": [
+								"vercarrito"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EliminarProducto",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3628/carritodelete/67c53597f2e421668c11571d",
+							"host": [
+								"localhost"
+							],
+							"port": "3628",
+							"path": [
+								"carritodelete",
+								"67c53597f2e421668c11571d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminarcarrito",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3628/deletecarrito/67c53fb2f2e421668c115784",
+							"host": [
+								"localhost"
+							],
+							"port": "3628",
+							"path": [
+								"deletecarrito",
+								"67c53fb2f2e421668c115784"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

@@ -20,7 +20,7 @@ export const validateJwt = async (req, res, next) => {
 
         // Inyectar la información del usuario en la solicitud para su uso posterior
         req.user = user
-
+        
         // Todo salió bien, pasar a la siguiente función
         next()
 
@@ -50,3 +50,16 @@ export const isClient = (req, res, next) => {
     // Si el usuario es CLIENTE, pasa a la siguiente función
     next()
 }
+
+// Middleware para verificar si el usuario es ADMIN o el mismo usuario
+export const isAdminOrSameUser = (req, res, next) => {
+    const { user } = req; // Este viene del JWT
+    const { id } = req.params; // ID del usuario que se quiere actualizar/eliminar
+
+    // Verificar si el usuario es ADMIN o si el ID del usuario en el token es igual al que se pasa como parámetro
+    if (user.role === 'ADMIN' || user.uid === id) {
+        return next(); // Si pasa la validación, sigue al siguiente middleware o función
+    }
+
+    return res.status(403).send({ message: 'Forbidden, you are not allowed to perform this action' });
+};
